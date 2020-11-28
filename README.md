@@ -59,44 +59,65 @@ meminta Anri untuk mengubah error page default squid menjadi seperti berikut:
 
 ## Jawaban
 1. Membuat topologi jaringan
+![Foto 1](img/1.jpg)
+![Foto 2](img/2.jpg)
 2. SURABAYA ditunjuk sebagai perantara (DHCP Relay) antara DHCP Server dan client.
     1. Kita ketikkan perintah ifconfig untuk mengetahui IP kita(pada server dhcp, yaitu TUBAN) (10.151.77.84)
     2. Install DHCP Server di TUBAN
     3. Atur interface dengan  nano /etc/default/isc-dhcp-server , interface yang dipilih adalah eth0 karena akan direlay.
+    ![Foto 3](img/3.jpg)
     4. Konfigurasi DHCP dengan nano /etc/dhcp/dhcpd.conf
+    ![Foto 4](img/4.jpg)
     5. Install isc-dhcp-relay di SURABAYA
     6. Isi konfigurasi isc-dhcp-relay seperti berikut :
+    ![Foto 5](img/5.jpg)
     7. Restart DHCP Server
 * Seluruh client TIDAK DIPERBOLEHKAN menggunakan konfigurasi IP Statis.
     * Ubah IP pada setiap client dengan menambahkan :
 	    * auto eth0
         * iface eth0 inet dhcp
     * Dan comment konfigurasi lama disetiap Client.
+    ![Foto 6](img/6.jpg)
     * Lalu lakukan perintah service networking restart pada setiap klien
     * Testing
         * GRESIK 
+	![Foto 7](img/7.jpg)
         * SIDOARJO
+	![Foto 8](img/8.jpg)
         * BANYUWANGI
+	![Foto 9](img/9.jpg)
         * MADIUN
+	![Foto 10](img/10.jpg)
 3. Client pada subnet 1 mendapatkan range IP dari 192.168.0.10 sampai 192.168.0.100 dan 192.168.0.110 sampai 192.168.0.200.
+![Foto 11](img/11 13 16.jpg)
 4. Client pada subnet 3 mendapatkan range IP dari 192.168.1.50 sampai 192.168.1.70.
+![Foto 12](img/12 14 17.jpg)
 5. Client mendapatkan DNS Malang dan DNS 202.46.129.2 dari DHCP
+![Foto 13](img/11 13 16.jpg)
+![Foto 14](img/12 14 17.jpg)
     1. Testing (cat /etc/resolv.conf)
+    ![Foto 15](img/15.jpg)
 6. Client di subnet 1 mendapatkan peminjaman alamat IP selama 5 menit, sedangkan client pada subnet 3 mendapatkan peminjaman IP selama 10 menit.
+![Foto 16](img/11 13 16.jpg)
+![Foto 17](img/12 14 17.jpg)
 7. User autentikasi milik Anri memiliki format:
     * User : userta_yyy
     * Password : inipassw0rdta_yyy
     * Keterangan : yyy adalah nama kelompok masing-masing. Contoh: userta_c01
     1. Install Squid di MOJOKERTO
+    ![Foto 18](img/18.jpg)
     2. Backup data konfigurasi Squid `mv /etc/squid/squid.conf /etc/squid/squid.conf.bak`
     3. Install Apache2-Utils
     4. Buat User dan Password sesuai format dengan menggunakan perintah : 
         * htpasswd -c /etc/squid/password userta_c09
         * Username, : userta_c09
         * Password : inipassw0rdta_c09
+	![Foto 19](img/19.jpg)
     5. Edit Konfigurasi squid-nya
+    ![Foto 20](img/20.jpg)
     6. Restart Squid
     7. Testing
+    ![Foto 21](img/21.jpg)
 8. Setiap hari Selasa-Rabu pukul 13.00-18.00. Bu Meguri membatasi penggunaan internet Anri hanya pada jadwal yang telah ditentukan itu saja. Maka diluar jam tersebut, Anri tidak 
     dapat mengakses jaringan internet dengan proxy tersebut.
     1. Buat file baru bernama acl.conf di folder squid
