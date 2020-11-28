@@ -110,7 +110,7 @@ meminta Anri untuk mengubah error page default squid menjadi seperti berikut:
     3. Install Apache2-Utils
     4. Buat User dan Password sesuai format dengan menggunakan perintah : 
         * htpasswd -c /etc/squid/password userta_c09
-        * Username, : userta_c09
+        * Username : userta_c09
         * Password : inipassw0rdta_c09
 	![Foto 19](img/19.jpg)
     5. Edit Konfigurasi squid-nya
@@ -118,31 +118,43 @@ meminta Anri untuk mengubah error page default squid menjadi seperti berikut:
     6. Restart Squid
     7. Testing
     ![Foto 21](img/21.jpg)
+    ![Foto 22](img/22.jpg)
 8. Setiap hari Selasa-Rabu pukul 13.00-18.00. Bu Meguri membatasi penggunaan internet Anri hanya pada jadwal yang telah ditentukan itu saja. Maka diluar jam tersebut, Anri tidak 
     dapat mengakses jaringan internet dengan proxy tersebut.
     1. Buat file baru bernama acl.conf di folder squid
     2. Edit file acl.conf
+    ![Foto 23](img/23.jpg)
     3. Edit file Squid menjadi :
+    ![Foto 24](img/24.jpg)
     4. Restart squid
     5. Testing (coba akses diluar jam yang telah ditentukan (08:08 AM))
+    ![Foto 25](img/25.jpg)
 9. Jadwal bimbingan dengan Bu Meguri adalah setiap hari Selasa-Kamis pukul 21.00 - 09.00 keesokan harinya (sampai Jumat jam 09.00).
     1. Edit file acl.conf , tambahkan JADWAL_BIMBINGAN
+    ![Foto 26](img/26.jpg)
     2. Edit file squid :
+    ![Foto 27](img/27.jpg)
 10. Agar Anri bisa fokus mengerjakan TA, setiap dia mengakses google.com, maka akan di redirect menuju monta.if.its.ac.id agar Anri selalu ingat untuk mengerjakan TA🙂.
     1. Edit Squid dengan menambahkan url_regex dan deny info
+    ![Foto 21](img/28.jpg)
     2. Testing dengan membuka : http://www.google.com/
 11. Untuk menandakan bahwa Proxy Server ini adalah Proxy yang dibuat oleh Anri, (11) Bu Meguri meminta Anri untuk mengubah error page default squid
     1. Unduh File error di :
         `wget 10.151.36.202/ERR_ACCESS_DENIED`  
     2. Replace fire ERR_ACCES_DENIED yang ada di /usr/share/squid/errors/English/
     3. Testing (buka elearning.if.its.ac.id)
+    ![Foto 29](img/29.jpg)
 12. Karena Bu Meguri dan Anri adalah tipe orang pelupa, maka untuk memudahkan mereka, Anri memiliki ide ketika menggunakan proxy cukup dengan mengetikkan domain janganlupa-
     ta.yyy.pw dan memasukkan port 8080.
     1. Install bind9 di Malang
     2. Edit named.conf.local seperti ini :
+    ![Foto 30](img/30.jpg)
     3. Buat folder jarkom
     4. Copykan file db.local pada path /etc/bind ke dalam folder jarkom yang baru saja dibuat dan ubah namanya menjadi janganlupa-ta.c09.pw
     5. Edit file janganlupa-ta.c09.pw menjadi :
+    ![Foto 31](img/31.jpg)
     6. Restart bind9
     7. Coba ubah proxy di firefox menggunakan janganlupa-ta.c09.pw dengan port 8080
-	8. Test buka elearning.if.its.ac.id
+    ![Foto 32](img/32.jpg)
+    8. Test buka elearning.if.its.ac.id
+    ![Foto 33](img/33.jpg)
