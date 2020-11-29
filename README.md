@@ -53,8 +53,14 @@ Untuk menandakan bahwa Proxy Server ini adalah Proxy yang dibuat oleh Anri, (11)
 meminta Anri untuk mengubah error page default squid menjadi seperti berikut:
 ![Soal 2](img/soal2.PNG)
 
-* Note : File error page bisa diunduh dengan cara wget 10.151.36.202/error403.tar.gz
-* Extract : tar -xvf error403.tar.gz
+* Note : File error page bisa diunduh dengan cara wget 10.151.36.202/ERR_ACCESS_DENIED. Tidak perlu di extract, cukup cp -r
+
+(12) Karena Bu Meguri dan Anri adalah tipe orang pelupa, maka untuk memudahkan mereka, Anri memiliki ide ketika menggunakan proxy cukup dengan mengetikkan domain janganlupa-ta.yyy.pw dan memasukkan port 8080. 
+Keterangan : yyy adalah nama kelompok masing-masing. Contoh: janganlupa-ta.c01.pw
+
+Bantu Anri menyelesaikan TA nya dibawah bimbingan Bu Meguri!👩🏻‍🎓
+
+Catatan: Jika tidak bisa dan menyerah untuk setup DHCP Server pada TUBAN (dengan relay pada SURABAYA), maka setup DHCP pada SURABAYA (tanpa DHCP Relay). Pastinya nilai tidak akan maksimal.
 
 
 ## Jawaban
